@@ -7,25 +7,32 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      color: #fff;
+      background-color: #fefefc;
       margin: 0;
       padding: 0;
-      background-image: url('images/logo.jpg'); /* ✅ background image */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      min-height: 100vh;
+    }
+
+    .hero {
+      height: 75vh;
+      background: white;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      text-align: center;
-      backdrop-filter: brightness(0.75);
+      align-items: center;
+    }
+
+    .hero img {
+      height: 100%;
+      width: calc(100% - 4in); /* 2in padding left & right */
+      object-fit: cover;
+      border-left: 2in solid white;
+      border-right: 2in solid white;
+      box-sizing: content-box;
     }
 
     h1 {
       text-align: center;
       color: #2e8b57;
+      margin-top: 30px;
     }
 
     .subjects {
@@ -33,7 +40,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      margin-top: 30px;
+      margin: 30px 20px;
     }
 
     .subject {
@@ -70,10 +77,22 @@
       .subject {
         width: 90%;
       }
+
+      .hero img {
+        width: 100%;
+        border-left: none;
+        border-right: none;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Background image section -->
+  <div class="hero">
+    <img src="images/juicebar.jpg" alt="Juice Bar Background" />
+  </div>
+
   <h1>Welcome to FreshPress Juicery</h1>
 
   <div class="subjects">
@@ -119,11 +138,11 @@
       selected.style.display = 'block';
     }
 
-    // Reset on page load
     window.onload = () => {
       const allTopics = document.querySelectorAll('.topics');
       allTopics.forEach(t => t.style.display = 'none');
     };
   </script>
+
 </body>
 </html>
