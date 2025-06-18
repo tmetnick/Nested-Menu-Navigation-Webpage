@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshPress Juicery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fefefc;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2e8b57;
+    }
+
+    .subjects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .subject {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .subject:hover {
+      transform: scale(1.03);
+    }
+
+    .topics {
+      margin-top: 15px;
+      display: none;
+    }
+
+    .topics a {
+      display: block;
+      margin: 6px 0;
+      color: #2e8b57;
+      text-decoration: none;
+    }
+
+    .topics a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .subject {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to FreshPress Juicery</h1>
+
+  <div class="subjects">
+    <!-- ABOUT -->
+    <div class="subject" onclick="toggleTopics('about')">
+      <h2>About</h2>
+      <div id="about-topics" class="topics">
+        <a href="about-story.html">Our Story</a>
+        <a href="about-ingredients.html">Our Ingredients</a>
+        <a href="about-sustainability.html">Sustainability</a>
+        <a href="about-team.html">Our Team</a>
+      </div>
+    </div>
+
+    <!-- MENU -->
+    <div class="subject" onclick="toggleTopics('menu')">
+      <h2>Menu</h2>
+      <div id="menu-topics" class="topics">
+        <a href="menu-coldpressed.html">Cold-Pressed Juices</a>
+        <a href="menu-smoothies.html">Smoothies</a>
+        <a href="menu-seasonal.html">Seasonal Specials</a>
+        <a href="menu-cleanses.html">Juice Cleanses</a>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="subject" onclick="toggleTopics('contact')">
+      <h2>Contact</h2>
+      <div id="contact-topics" class="topics">
+        <a href="contact-visit.html">Visit Us</a>
+        <a href="contact-order.html">Order Online</a>
+        <a href="contact-faqs.html">FAQs</a>
+        <a href="contact-reviews.html">Customer Reviews</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleTopics(subjectId) {
+      const allTopics = document.querySelectorAll('.topics');
+      allTopics.forEach(t => t.style.display = 'none');
+      const selected = document.getElementById(subjectId + '-topics');
+      selected.style.display = 'block';
+    }
+
+    // Reset on page load
+    window.onload = () => {
+      const allTopics = document.querySelectorAll('.topics');
+      allTopics.forEach(t => t.style.display = 'none');
+    };
+  </script>
+</body>
+</html>
